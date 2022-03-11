@@ -1,0 +1,31 @@
+getpass - Universal Password Retrieval Utility - Version 3.0 - 03/11/2022
+
+This program retrieves a user's eDirectory Universal Password by using an LDAP extended operation.
+
+To install, simply ensure you have a Python 3 environment with the 'argparse', 'ldap3' and 'sys' modules available.
+This code will run on any system that meets these requirements, Linux, Mac, and Windows.
+
+Example installation on Open Enterprise Server 2018 SP3 (x86_64) / SUSE Linux Enterprise Server 12 SP5 (x86_64),
+run as root:
+
+python3 -m ensurepip --upgrade
+pip3 install ldap3
+
+Usage (at a shell type):
+:~> python3 getpass.py
+
+The following arguments are required:
+-u/--admin-user, CN of an administrative user, ex: cn=admin,o=lab
+-p/--admin-pass, Password for the administrative user
+-s/--server-host, Hostname of the target server. ex: oes.lab.local
+-P/--server-port, TLS port of the target server. ex: 636
+-t/--target-user, CN of the target user password you want to retrieve. ex: cn=test,ou=users,o=lab
+
+Example output:
+oes:~> python3 getpass.py -u cn=admin,o=lab -p Mylabpass -s oes.lab.local -P 636 -t cn=test,ou=users,o=lab
+SuperSecret!
+
+
+NOTE: The eDirectory environment must be using the Universal Password feature, and the target user must have a
+Universal Password Policy assigned to them by using iManager. The Password Policy must also allow the administrative user
+to retrieve passwords.
