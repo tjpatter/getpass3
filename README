@@ -26,6 +26,4 @@ oes:~> python3 getpass.py -u cn=admin,o=lab -p Mylabpass -s oes.lab.local -P 636
 SuperSecret!
 
 
-NOTE: The eDirectory environment must be using the Universal Password feature, and the target user must have a
-Universal Password Policy assigned to them by using iManager. The Password Policy must also allow the administrative user
-to retrieve passwords.
+NOTE: The eDirectory environment must be using the Universal Password feature, and the target user must have a Universal Password Policy assigned to them by using iManager. The Password Policy must also allow the administrative user to retrieve passwords.
