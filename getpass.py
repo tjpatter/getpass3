@@ -18,11 +18,11 @@ parser.add_argument('-p', '--admin-pass', help='Password for the administrative 
 parser.add_argument('-s', '--server-host', help='Hostname of the target server. ex: oes.lab.local', dest='server_host')
 parser.add_argument('-P', '--server-port', help='TLS port of the target server. ex: 636', dest='server_port')
 parser.add_argument('-t', '--target-user', help='CN of the target user password you want to retrieve. ex: cn=test,ou=users,o=lab', dest='target_user')
-parser.add_argument('-e', '--env-file', help='Path to the environment file containing connection info', dest='env_file')
+parser.add_argument('-e', '--use-env', action='store_true', help='Use .env file for connection info', dest='use_env')
 args = parser.parse_args()
 
-if args.env_file:
-    env_vars = read_env_file(args.env_file)
+if args.use_env:
+    env_vars = read_env_file(".env")
     server_host = env_vars['SERVER_HOST']
     server_port = env_vars['SERVER_PORT']
     admin_user = env_vars['ADMIN_USER']
