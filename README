@@ -20,6 +20,7 @@ The following arguments are required:
 -s/--server-host, Hostname of the target server. ex: oes.lab.local
 -P/--server-port, TLS port of the target server. ex: 636
 -t/--target-user, CN of the target user password you want to retrieve. ex: cn=test,ou=users,o=lab
+-e/--env-file, Use .env file for connection info
 
 Example output:
 oes:~> python3 getpass.py -u cn=admin,o=lab -p Mylabpass -s oes.lab.local -P 636 -t cn=test,ou=users,o=lab
